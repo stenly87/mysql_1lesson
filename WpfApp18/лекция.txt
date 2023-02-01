@@ -1,0 +1,38 @@
+"server=192.168.200.13;
+user id=student;
+password=student;
+database=db1125restoran;
+characterset=utf8mb4"
+
+
+SELECT - используется для создания выборки из субд
+SELECT * - выбрать все данные
+SELECT id, title, description - выбрать конкретные стоблцы
+FROM - указывает таблицы, откуда будут выбираться данные
+FROM tbl_users
+FROM tbl_users, tbl_position
+WHERE - уточнение запроса - фильтры, условия и тп
+WHERE year > 2000
+WHERE tbl_users.id_position = tbl_position.id
+WHERE title like '%админ%'
+
+SELECT id, title, description
+FROM tbl_users
+WHERE title like '%админ%'
+
+для создания записей в таблице используется
+INSERT 
+пример с указанием всех значений
+INSERT INTO tbl_position VALUES(0, 'Админ', 'Новый администратор');
+пример с указанием значений только для выбранных столбцов
+INSERT INTO tbl_position (title, description) VALUES ('Админ', 'Новый администратор');
+
+для изменения записей в таблице используется
+UPDATE
+UPDATE tbl_position SET title = 'Официант', description = 'инфа' WHERE id = 5;
+UPDATE tbl_position SET title = @title, description = @description WHERE id = 5;
+
+для удаления записей в таблице используется
+DELETE
+
+DELETE FROM tbl_position WHERE id > 5
